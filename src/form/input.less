@@ -1,0 +1,63 @@
+form {
+    margin-bottom: @margin-medium;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+    height          : @input-height-normal;
+    padding         : 0 @padding-medium;
+    background-color: @white;
+    border          : @border-width-normal solid @light;
+    border-radius   : @border-radius-medium;
+    box-shadow      : none;
+    box-sizing      : border-box;
+    margin-bottom   : @margin-small;
+    font-size       : @font-size-6;
+    font-family     : @font-family-primary;
+
+    &:focus {
+        border : @border-width-normal solid @info;
+        outline: 0;
+    }
+
+    &.is-fullwidth {
+        width: 100%;
+    }
+
+    each(.colors(), {
+            &.is-@{key} {
+                border-color: extract(@value, 1);
+            }
+        }
+
+    );
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+    appearance: none;
+}
+
+textarea {
+    min-height    : @textarea-min-height;
+    padding-top   : @padding-normal;
+    padding-bottom: @padding-normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline;
+}

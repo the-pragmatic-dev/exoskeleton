@@ -1,0 +1,81 @@
+.delete {
+    appearance      : none;
+    background-color: rgba(@dark, .2);
+    border          : none;
+    border-radius   : @border-radius-large;
+    cursor          : pointer;
+    pointer-events  : auto;
+    display         : inline-block;
+    flex-grow       : 0;
+    flex-shrink     : 0;
+    font-size       : 0;
+    height          : @delete-size-normal;
+    max-height      : @delete-size-normal;
+    max-width       : @delete-size-normal;
+    min-height      : @delete-size-normal;
+    min-width       : @delete-size-normal;
+    outline         : none;
+    position        : relative;
+    user-select     : none;
+    vertical-align  : top;
+    width           : @delete-size-normal;
+
+    &::before,
+    &::after {
+        background-color: @white;
+        content         : "";
+        display         : block;
+        left            : 50%;
+        position        : absolute;
+        top             : 50%;
+        transform       : translateX(-50%) translateY(-50%) rotate(45deg);
+        transform-origin: center center;
+    }
+
+    &::before {
+        height: 2px;
+        width : 50%;
+    }
+
+    &::after {
+        height: 50%;
+        width : 2px;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: rgba(@dark, .3);
+    }
+
+    &:active {
+        background-color: rgba(@dark, .4);
+    }
+
+    // Sizes
+    &.is-small {
+        height    : @delete-size-small;
+        max-height: @delete-size-small;
+        max-width : @delete-size-small;
+        min-height: @delete-size-small;
+        min-width : @delete-size-small;
+        width     : @delete-size-small;
+    }
+
+    &.is-medium {
+        height    : @delete-size-medium;
+        max-height: @delete-size-medium;
+        max-width : @delete-size-medium;
+        min-height: @delete-size-medium;
+        min-width : @delete-size-medium;
+        width     : @delete-size-medium;
+    }
+
+    &.is-large {
+        height    : @delete-size-large;
+        max-height: @delete-size-large;
+        max-width : @delete-size-large;
+        min-height: @delete-size-large;
+        min-width : @delete-size-large;
+        width     : @delete-size-large;
+    }
+}

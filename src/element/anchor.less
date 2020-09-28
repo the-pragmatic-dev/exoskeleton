@@ -1,0 +1,25 @@
+a {
+  color          : @link;
+  cursor         : pointer;
+  text-decoration: underline;
+
+  &:hover {
+    color: darken(@link, 10%);
+  }
+
+  &.has-text-decoration-none {
+    text-decoration: none;
+  }
+
+  each(.colors(), {
+      &.is-@{key} {
+        color: extract(@value, 1);
+
+        &:hover {
+          color: darken(extract(@value, 1), 10%);
+        }
+      }
+    }
+
+  );
+}

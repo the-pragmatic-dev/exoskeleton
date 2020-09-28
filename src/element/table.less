@@ -1,0 +1,36 @@
+th,
+td {
+    border-bottom: @border-width-normal solid @light;
+    padding      : @padding-medium @padding-large;
+    text-align   : left;
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+table {
+    display    : inline-block;
+    overflow-x : auto;
+    white-space: nowrap;
+
+    &.is-fullwidth {
+        width: 100%;
+    }
+
+    /* For all devices larger than @mobile */
+    @media (min-width: @tablet) {
+        display: table;
+    }
+}
+
+.table-wrapper {
+    display     : table;
+    overflow-x  : auto;
+    table-layout: fixed;
+    width       : 100%;
+}

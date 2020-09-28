@@ -1,0 +1,49 @@
+.tooltip {
+    border  : 0;
+    display : inline-block;
+    position: relative;
+
+    &>.tooltiptext {
+        background-color: @dark;
+        border-radius   : @border-radius-medium;
+        color           : @white;
+        display         : table; // table fixes issue on iphone
+        left            : 100%;
+        max-width       : 20rem;
+        padding         : @padding-normal @padding-medium;
+        position        : absolute;
+        text-align      : center;
+        visibility      : hidden;
+        white-space     : pre-line;
+        width           : max-content;
+        z-index         : 1;
+
+        &::after {
+            border-color: transparent #4B5C6B transparent transparent;
+            border-style: solid;
+            border-width: 5px;
+            content     : "";
+            margin-top  : -5px;
+            position    : absolute;
+            right       : 100%;
+            top         : 50%;
+        }
+
+        &.is-inline {
+            left     : 110%;
+            top      : 50%;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &:active .tooltiptext {
+        visibility: visible;
+    }
+
+    /* For all devices larger than @mobile */
+    @media (min-width: @tablet) {
+        &:hover .tooltiptext {
+            visibility: visible;
+        }
+    }
+}

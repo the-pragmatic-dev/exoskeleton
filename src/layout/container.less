@@ -1,0 +1,39 @@
+.container {
+    flex-grow: 1;
+    margin   : 0 auto;
+    padding  : @padding-normal;
+    position : relative;
+    width    : auto;
+
+    &.is-gapless {
+        margin : 0;
+        padding: 0;
+    }
+
+    &.is-fullheight {
+        height: 100%;
+    }
+
+    /* For all devices larger than @mobile */
+    @media screen and (min-width: @tablet) {
+        &.is-fluid {
+            max-width: none;
+            width    : 100%;
+        }
+    }
+
+    /* For all devices larger than @tablet */
+    @media screen and (min-width: @desktop) {
+        max-width: @desktop - @container-offset;
+    }
+
+    /* For all devices larger than @desktop */
+    @media screen and (min-width: @widescreen) {
+        max-width: @widescreen - @container-offset;
+    }
+
+    /* For all devices larger than @widescreen */
+    @media screen and (min-width: @fullhd) {
+        max-width: @fullhd - @container-offset;
+    }
+}

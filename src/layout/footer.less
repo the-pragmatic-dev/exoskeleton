@@ -1,0 +1,18 @@
+.footer {
+    border-top    : @border-width-normal solid @light;
+    color         : @dark;
+    padding-top   : @padding-large;
+    padding-bottom: @padding-large;
+    z-index       : 2;
+
+    &.is-fixed-bottom {
+        bottom  : 0;
+        left    : 0;
+        position: absolute;
+        right   : 0;
+    }
+
+    &.has-background-white {
+        background-color: white;
+    }
+}

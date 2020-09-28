@@ -1,0 +1,54 @@
+.card {
+    background-color: @white;
+    box-shadow      : 0 0.5em 1em -0.125em rgba(@dark, 0.1), 0 0 0 1px rgba(@dark, 0.02);
+    color           : @dark;
+    max-width       : 100%;
+    margin-bottom   : @margin-normal;
+    position        : relative;
+    border          : @border-width-normal solid @lighter;
+    border-radius   : 8px;
+    overflow        : hidden;
+
+    .card-image {
+        display : block;
+        position: relative;
+    }
+
+    .card-content {
+        background-color: transparent;
+        padding         : 1.5rem;
+        margin-bottom   : 0;
+    }
+
+    .card-overlay {
+        cursor          : pointer;
+        position        : absolute;
+        background-color: @light;
+        bottom          : -50px;
+        right           : -50px;
+        height          : 50px;
+        width           : 50px;
+        border-radius   : 50%;
+        transition      : all .3s;
+        z-index         : 1;
+
+        each(.colors(), {
+                &.is-@{key} {
+                    background-color: extract(@value, 1);
+                }
+            }
+
+        );
+    }
+
+    &:hover {
+        .card-overlay {
+            transform: scale(38);
+
+            /* For all devices larger than @mobile */
+            @media screen and (min-width: @tablet) {
+                transform: scale(25);
+            }
+        }
+    }
+}

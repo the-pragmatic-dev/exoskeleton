@@ -1,0 +1,23 @@
+.notification {
+    align-items: center;
+    background : @link;
+    display    : flex;
+    padding    : @padding-normal;
+
+    .notification-content {
+        flex      : 1;
+        text-align: center;
+
+        &>span {
+            margin-right: @padding-normal;
+        }
+
+        &>button {
+            margin: 0;
+        }
+    }
+
+    &.is-hidden {
+        display: none;
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@thepragmaticdev/exoskeleton",
+  "version": "1.0.0",
+  "description": "Simple, responsive CSS boilerplate.",
+  "author": "Stephen Cathcart",
+  "license": "ISC",
+  "homepage": "https://github.com/the-pragmatic-dev/exoskeleton#readme",
+  "main": "src/exoskeleton.less",
+  "scripts": {
+    "start": "npm run build && concurrently --kill-others \"npm run budo\" \"npm run watch-html\" \"less-watch-compiler\"",
+    "build": "npm run lessc",
+    "budo": "budo --dir dist --live --open",
+    "watch-html": "copy-and-watch --watch index.html dist/",
+    "lessc": "lessc --js --clean-css src/exoskeleton.less dist/exoskeleton.min.css"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "budo": "^11.6.3",
+    "concurrently": "^5.0.2",
+    "copy-and-watch": "^0.1.4",
+    "less-plugin-clean-css": "^1.5.1",
+    "less-watch-compiler": "^1.14.1",
+    "lessc": "^1.0.2"
+  }
+}

@@ -1,0 +1,37 @@
+code {
+    background   : @lighter;
+    border       : @border-width-normal solid @light;
+    border-radius: @border-radius-medium;
+    font-family  : @font-family-monospace;
+    font-size    : 90%;
+    margin       : 0 @padding-small;
+    padding      : @padding-small @padding-normal;
+    white-space  : nowrap;
+
+    &.is-small {
+        font-size: @font-size-7;
+    }
+
+    &.is-light {
+        color         : @medium;
+        letter-spacing: normal;
+    }
+}
+
+pre {
+    font-family: @font-family-monospace;
+    font-size  : @font-size-6;
+    font-weight: @font-weight-regular;
+    line-height: @line-height-medium;
+    margin     : @margin-small 0;
+    overflow   : auto;
+    white-space: pre;
+
+    >code {
+        background : transparent;
+        display    : block;
+        overflow   : scroll;
+        padding    : @padding-medium @padding-large;
+        white-space: pre;
+    }
+}

@@ -1,0 +1,77 @@
+.tabs {
+    align-items    : stretch;
+    display        : flex;
+    font-size      : @font-size-7;
+    font-weight    : @font-weight-semibold;
+    justify-content: space-between;
+    overflow       : hidden;
+    overflow-x     : auto;
+    white-space    : nowrap;
+
+    a {
+        align-items        : center;
+        border-bottom-color: @light;
+        border-bottom-style: solid;
+        border-bottom-width: @border-width-normal;
+        color              : @dark;
+        display            : flex;
+        justify-content    : center;
+        margin-bottom      : -@border-width-normal;
+        padding            : @padding-normal @padding-medium;
+        text-decoration    : none;
+        vertical-align     : top;
+
+        &:hover {
+            border-bottom-color: @medium;
+            color              : darken(@dark, 10%);
+        }
+    }
+
+    li {
+        display: block;
+        margin : 0;
+
+        &.is-active {
+            a {
+                border-bottom-color: @link;
+                color              : @link;
+            }
+        }
+    }
+
+    ul {
+        align-items        : center;
+        border-bottom-color: @light;
+        border-bottom-style: solid;
+        border-bottom-width: @border-width-normal;
+        display            : flex;
+        flex-grow          : 1;
+        flex-shrink        : 0;
+        justify-content    : flex-start;
+
+        &.is-centered {
+            justify-content: center
+        }
+
+        &.is-right {
+            justify-content: flex-end;
+        }
+    }
+
+    &.is-small {
+        font-size: @font-size-7;
+    }
+
+    &.is-medium {
+        font-size: @font-size-6;
+    }
+
+    &.is-large {
+        font-size: @font-size-5;
+    }
+
+    /* For all devices larger than @mobile */
+    @media (min-width: @tablet) {
+        font-size: @font-size-6;
+    }
+}

@@ -1,0 +1,20 @@
+.dot {
+    background-color: @medium;
+    border-radius   : 50%;
+    display         : inline-block;
+    height          : @dot-size-normal;
+    width           : @dot-size-normal;
+
+    &.is-small {
+        height: @dot-size-small;
+        width : @dot-size-small;
+    }
+
+    each(.colors(), {
+            &.is-@{key} {
+                background-color: extract(@value, 1);
+            }
+        }
+
+    );
+}

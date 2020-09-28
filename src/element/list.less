@@ -1,0 +1,36 @@
+.no-style() {
+    list-style: none;
+
+    ul,
+    ol {
+        list-style: none;
+    }
+}
+
+ul,
+ol {
+    padding-left: 0;
+    margin-top  : 0;
+
+    ul,
+    ol {
+        margin   : @margin-normal 0 @margin-normal @margin-large;
+        font-size: 90%;
+    }
+
+    &.no-style {
+        .no-style();
+    }
+}
+
+ul {
+    list-style: circle inside;
+}
+
+ol {
+    list-style: decimal inside;
+}
+
+li {
+    margin-bottom: @margin-small;
+}

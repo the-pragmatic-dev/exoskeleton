@@ -1,0 +1,26 @@
+.sidebar {
+    background: @primary;
+
+    .sidebar-item {
+        color        : darken(@primary, 25%);
+        cursor       : pointer;
+        height       : @sidebar-menu-item-size-small;
+        margin-bottom: 0;
+        width        : @sidebar-menu-item-size-small;
+
+        &.is-active {
+            background-color: darken(@primary, 25%);
+            color           : @white;
+        }
+
+        &:not(.is-active):hover {
+            background-color: darken(@primary, 10%);
+        }
+
+        /* For all devices larger than @mobile */
+        @media (min-width: @tablet) {
+            height: @sidebar-menu-item-size-normal;
+            width : @sidebar-menu-item-size-normal;
+        }
+    }
+}

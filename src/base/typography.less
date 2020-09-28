@@ -1,0 +1,144 @@
+@import url('https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css');
+
+html {
+    color      : @dark;
+    font-family: @font-family-primary;
+    font-size  : 62.5%; // 10px based REM measurements throughout (1.5rem=15px)
+    font-weight: @font-weight-regular;
+    line-height: @line-height-large;
+}
+
+body {
+    font-size: 1.5em; // chrome bug: use ems as rems is misinterpretted on body element
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top   : 0;
+    margin-bottom: @margin-normal;
+    font-weight  : @font-weight-light;
+}
+
+h1 {
+    .header(@font-size: @font-size-1; @line-height: @line-height-small; @letter-spacing: @letter-spacing-smallest);
+}
+
+h2 {
+    .header(@font-size: @font-size-2; @line-height: @line-height-normal; @letter-spacing: @letter-spacing-smallest);
+}
+
+h3 {
+    .header(@font-size: @font-size-3; @line-height: @line-height-normal; @letter-spacing: @letter-spacing-smallest);
+}
+
+h4 {
+    .header(@font-size: @font-size-4; @line-height: @line-height-normal; @letter-spacing: @letter-spacing-smaller);
+}
+
+h5 {
+    .header(@font-size: @font-size-5; @line-height: @line-height-medium; @letter-spacing: @letter-spacing-small);
+}
+
+h6 {
+    .header(@font-size: @font-size-6; @line-height: @line-height-large; @letter-spacing: @letter-spacing-normal);
+}
+
+/* For all devices larger than @mobile */
+@media (min-width: @tablet) {
+    h1 {
+        font-size: @font-size-1 * @font-size-scaler;
+    }
+
+    h2 {
+        font-size: @font-size-2 * @font-size-scaler;
+    }
+
+    h3 {
+        font-size: @font-size-3 * @font-size-scaler;
+    }
+
+    h4 {
+        font-size: @font-size-4 * @font-size-scaler;
+    }
+
+    h5 {
+        font-size: @font-size-5 * @font-size-scaler;
+    }
+}
+
+p {
+    margin-top   : 0;
+    margin-bottom: @margin-medium;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+u {
+    text-decoration: underline;
+}
+
+.has-word-wrap {
+    word-wrap: anywhere;
+}
+
+each(.sizes(), {
+        &.is-size-@{key} {
+            font-size: @value  !important;
+        }
+    }
+
+);
+
+each(.colors(), {
+        &.has-text-@{key} {
+            color: extract(@value, 1) !important;
+        }
+    }
+
+);
+
+each(.alignments(), {
+        &.has-text-@{key} {
+            text-align: @value  !important;
+        }
+    }
+
+);
+
+each(.transformations(), {
+        &.is-@{key} {
+            text-transform: @value  !important;
+        }
+    }
+
+);
+
+each(.font-weights(), {
+        &.has-text-weight-@{key} {
+            font-weight: @value  !important;
+        }
+    }
+
+);
+
+each(.font-families(), {
+        &.is-@{key} {
+            font-family: @value  !important;
+        }
+    }
+
+);
+
+.is-italic {
+    font-style: italic !important;
+}

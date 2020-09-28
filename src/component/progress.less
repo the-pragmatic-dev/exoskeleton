@@ -1,0 +1,96 @@
+.progress {
+    -moz-appearance   : none;
+    -webkit-appearance: none;
+    border            : none;
+    border-radius     : @border-radius-large;
+    display           : block;
+    height            : @height-normal;
+    overflow          : hidden;
+    padding           : 0;
+    width             : 100%;
+
+    each(.colors(), {
+            &.is-@{key} {
+                &::-webkit-progress-value {
+                    background-color: extract(@value, 1);
+                }
+
+                &::-moz-progress-bar {
+                    background-color: extract(@value, 1);
+                }
+
+                &::-ms-fill {
+                    background-color: extract(@value, 1);
+                }
+
+                &:indeterminate {
+                    background-image: linear-gradient(to right, extract(@value, 1) 30%, @lighter 30%);
+                }
+            }
+        }
+
+    );
+
+    &::-webkit-progress-bar {
+        background-color: @lighter;
+    }
+
+    &::-webkit-progress-value {
+        background-color: @dark;
+    }
+
+    &::-moz-progress-bar {
+        background-color: @dark
+    }
+
+    &::-ms-fill {
+        background-color: @dark;
+        border          : none
+    }
+
+    &:not(:last-child) {
+        margin-bottom: @margin-normal;
+    }
+
+    &:indeterminate {
+        animation-duration       : @progress-indeterminate-duration;
+        animation-iteration-count: infinite;
+        animation-name           : moveIndeterminate;
+        animation-timing-function: linear;
+        background-color         : @lighter;
+        background-image         : linear-gradient(to right, @dark 30%, @lighter 30%);
+        background-position      : top left;
+        background-repeat        : no-repeat;
+        background-size          : 150% 150%;
+
+        &::-webkit-progress-bar {
+            background-color: transparent
+        }
+
+        &::-moz-progress-bar {
+            background-color: transparent
+        }
+    }
+
+    &.is-small {
+        height: @height-small
+    }
+
+    &.is-medium {
+        height: @height-medium
+    }
+
+    &.is-large {
+        height: @height-large
+    }
+}
+
+@keyframes moveIndeterminate {
+    from {
+        background-position: 200% 0
+    }
+
+    to {
+        background-position: -200% 0
+    }
+}

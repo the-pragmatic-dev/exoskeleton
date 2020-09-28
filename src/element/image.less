@@ -1,0 +1,18 @@
+.image {
+    display : block;
+    position: relative;
+
+    img {
+        display: block;
+        height : auto;
+        width  : 100%;
+    }
+
+    &.is-profile {
+        width        : @image-profile-size-normal;
+        height       : @image-profile-size-normal;
+        position     : relative;
+        overflow     : hidden;
+        border-radius: 50%;
+    }
+}

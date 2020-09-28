@@ -1,0 +1,45 @@
+html {
+    box-sizing              : border-box;
+    scroll-behavior         : smooth;
+    -webkit-text-size-adjust: none;
+}
+
+* &,
+&::before,
+&::after {
+    box-sizing: inherit
+}
+
+each(.displays(), {
+        &.is-@{key} {
+            display: @value  !important;
+        }
+    }
+
+);
+
+.is-vcentered {
+    align-items: center;
+}
+
+.is-hcentered {
+    justify-content: center;
+    text-align     : center;
+}
+
+.is-gapless {
+    margin : 0;
+    padding: 0;
+}
+
+.is-hidden {
+    visibility: hidden;
+}
+
+.has-border-top {
+    border-top: @border-width-normal solid @light;
+}
+
+.has-padding-top {
+    padding-top: @padding-normal;
+}

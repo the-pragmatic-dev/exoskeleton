@@ -1,0 +1,6 @@
+{
+    "watchFolder": "src",
+    "outputFolder": "dist",
+    "mainFile": "exoskeleton.less",
+    "minified": "true"
+}

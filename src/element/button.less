@@ -1,0 +1,90 @@
+.darken-warning-color (@color) when (@color =@warning) {
+    color: darken(extract(@warning, 1), 35%);
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    background-color: transparent;
+    border          : @border-width-normal solid @light;
+    border-radius   : @border-radius-medium;
+    color           : @dark;
+    cursor          : pointer;
+    display         : inline-block;
+    font-family     : @font-family-primary;
+    font-size       : @font-size-7;
+    font-weight     : @font-weight-semibold;
+    height          : @input-height-normal;
+    justify-content : center;
+    letter-spacing  : @letter-spacing-medium;
+    margin-bottom   : @margin-small;
+    padding         : 0 @button-offset-normal;
+    text-align      : center;
+    text-decoration : none;
+    text-transform  : uppercase;
+    white-space     : nowrap;
+
+    &:hover,
+    &:focus {
+        border-color: @medium;
+        color       : @dark;
+        outline     : 0;
+    }
+
+    &.is-small {
+        font-size: 80%;
+        height   : @input-height-small;
+        padding  : 0 @button-offset-small;
+    }
+
+    &.is-large {
+        font-size: @font-size-5;
+        height   : @input-height-large;
+        padding  : 0 @button-offset-large;
+    }
+
+    &.is-rounded {
+        border-radius: @border-radius-large;
+    }
+
+    &.is-fullwidth {
+        width: 100%;
+    }
+
+    each(.colors(), {
+            &.is-@{key} {
+                background-color: extract(@value, 1);
+                border-color    : darken(extract(@value, 1), 10%);
+                color           : extract(@value, 2);
+
+                &:hover:enabled {
+                    border-color    : darken(extract(@value, 1), 30%);
+                    background-color: darken(extract(@value, 1), 10%);
+                }
+
+                &:active:enabled {
+                    border-color    : darken(extract(@value, 1), 30%);
+                    background-color: darken(extract(@value, 1), 20%);
+                }
+
+                &.is-outlined {
+                    background-color: @white;
+                    color           : extract(@value, 1);
+                    .darken-warning-color(extract(@value, 1));
+
+                    &:hover:enabled {
+                        color: @white;
+                    }
+                }
+            }
+        }
+
+    );
+
+    &[disabled] {
+        opacity: 0.5;
+        cursor : not-allowed;
+    }
+}

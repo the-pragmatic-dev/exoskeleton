@@ -1,0 +1,47 @@
+@field-padding-normal: 2.5em;
+
+.field {
+
+    label,
+    legend {
+        display      : block;
+        margin-bottom: @margin-small;
+        font-weight  : @font-weight-semibold;
+    }
+
+    p {
+        font-size    : @font-size-7;
+        margin-bottom: 0;
+    }
+
+    .control {
+        box-sizing: border-box;
+        clear     : both;
+        font-size : @font-size-6;
+        position  : relative;
+        text-align: inherit;
+
+        &.has-icons-left {
+            input {
+                padding-left: @field-padding-normal;
+            }
+
+            .icon {
+                align-items    : center;
+                color          : @light;
+                display        : inline-flex;
+                height         : @input-height-normal;
+                justify-content: center;
+                pointer-events : none;
+                position       : absolute;
+                top            : 0;
+                width          : @input-height-normal;
+                z-index        : 4;
+
+                &.is-left {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
