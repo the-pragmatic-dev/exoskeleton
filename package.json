@@ -4,7 +4,7 @@
   "description": "Simple, responsive CSS boilerplate.",
   "author": "Stephen Cathcart",
   "license": "ISC",
-  "homepage": "https://github.com/the-pragmatic-dev/exoskeleton#readme",
+  "homepage": "https://github.com/the-pragmatic-dev/exoskeleton",
   "main": "src/exoskeleton.less",
   "scripts": {
     "start": "npm run build && concurrently --kill-others \"npm run budo\" \"npm run watch-html\" \"less-watch-compiler\"",
