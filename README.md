@@ -1,3 +1,5 @@
-# NPM Publish
+# NPM Release
 
-npm publish --access public
+* bump version
+
+* npm publish --access public
